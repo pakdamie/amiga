@@ -16,3 +16,5 @@ Imports:
 	dplyr,
 	deSolve,
 	ryacas
+URL: https://github.com/pakdamie/amiga
+BugReports: https://github.com/pakdamie/amiga/issues
