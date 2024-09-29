@@ -9,7 +9,7 @@
 #' @return A matrix object
 #' @export
 #'
-#' @examples
+#' @examples create_adjacency_matrix(SIR_list)
 create_adjacency_matrix <- function(yacas_list){
 
   state_variable <- yacas_list[[1]]

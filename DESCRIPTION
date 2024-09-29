@@ -1,12 +1,18 @@
 Package: amiga
-Title: What the Package Does (One Line, Title Case)
+Title: Check for leaks in your deSolve function
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Damie", "Pak", , "damiedpak@gmail.com", role = c("cre"),
+           comment = c(ORCID = "0000-0002-8335-110X"))
+Description: Oh no did you write your equations right in your deSolve function?
+  Check for leaks!
+License: `use_mit_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Imports:
+	ggplot2,
+	stringr,
+	dplyr,
+	deSolve,
+	ryacas

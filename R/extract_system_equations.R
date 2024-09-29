@@ -9,15 +9,12 @@
 #'
 #'
 #' @param deSolve_function
-
 #' @return A list element with the first element being the state variables
 #' and the second element being a list of the equations.
 #' @export
 #'
-#' @examples
+#' @examples extract_system_equations(SIRmod)
 extract_system_equations <- function(deSolve_function){
-
-
 
  if(inherits(deSolve_function,"function") == FALSE){
    stop("Ensure that you are giving me a function!")
@@ -40,7 +37,7 @@ extract_system_equations <- function(deSolve_function){
  }
 
  #What line is the return equation in.
- deparsed_return_index <-which(!is.na(unlist(return_equation)))
+ deparsed_return_index <- which(!is.na(unlist(return_equation)))
 
  #Pull out the state-variables from the return equation
  state_variables <- return_equation[[deparsed_return_index]]
@@ -63,7 +60,6 @@ extract_system_equations <- function(deSolve_function){
    #return the equation for the derivative of the state variable
    tmp_equation <- deparsed_equations_noreturn[[equation_index]]
 
-   print(tmp_equation)
    symb_equation <- ysym(str_extract(tmp_equation, "(?<=\\=).*"))
 
    equations_list[[state]] <- symb_equation

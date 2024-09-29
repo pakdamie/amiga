@@ -5,10 +5,11 @@
 #'
 #' @param adjacency_matrix
 #'
-#' @return ggplot2 object
+#' @return ggplot2 object that shows the states as rectangles AND how they
+#' are connected or not.
 #' @export
 #'
-#' @examples
+#' @examples graph_adjacency_matrix(adj_mat)
 graph_adjacency_matrix <- function(adjacency_matrix) {
 
 
