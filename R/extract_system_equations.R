@@ -74,7 +74,7 @@ extract_system_equations <- function(deSolve_function){
    stop("The number of equations and the number of state variables are not equal!")
  }
 
- return(list(state_variables_vector,
+ return(list(gsub("^d", "", state_variables_vector),
              equations_list))
 }
 

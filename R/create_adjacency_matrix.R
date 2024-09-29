@@ -15,8 +15,6 @@ create_adjacency_matrix <- function(yacas_list){
   state_variable <- yacas_list[[1]]
   system_equations <- yacas_list[[2]]
 
-
-  print(system_equations)
   ### If n is the number of state variables, then this is a nxn matrix
   state_matrix <- matrix(0,
                          nrow =length(state_variable),
