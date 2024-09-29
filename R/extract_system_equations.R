@@ -2,7 +2,10 @@
 #' Extract the system equations from a deSolve function
 #'
 #' By feeding in a deSolve function, you can then retrieve the state-variables
-#' of interest as well as the corresponding equations related to their derivative
+#' of interest as well as the corresponding equations related to their derivative.
+#' Note: Because this function using `{ryacas}`, it automatically assumes that I
+#' is a complex number. This is very annoying if you're doing SIR, so I automatically
+#' change I to little i.
 #'
 #'
 #' @param deSolve_function
@@ -14,6 +17,8 @@
 #' @examples
 extract_system_equations <- function(deSolve_function){
 
+
+
  if(inherits(deSolve_function,"function") == FALSE){
    stop("Ensure that you are giving me a function!")
  }
@@ -22,7 +27,8 @@ extract_system_equations <- function(deSolve_function){
  #remove spaces and ensure that we use equal signs only
  deparsed_equations <- deparse(deSolve_function)
  deparsed_equations <- lapply(deparsed_equations, function(x) gsub(" ", "", x))
- deparsed_equations <- lapply(deparsed_equations, function(x) gsub(" ", "", x))
+ deparsed_equations <- lapply(deparsed_equations, function(x) gsub("<-", "=", x))
+ deparsed_equations <- lapply(deparsed_equations, function(x) gsub("I", "i", x))
 
 
  #Find the return equation
@@ -52,8 +58,15 @@ extract_system_equations <- function(deSolve_function){
    equation_index <- which(unlist(lapply(deparsed_equations_noreturn, function(x)
                                   str_detect(x, state_var)) == TRUE))
 
+
+
    #return the equation for the derivative of the state variable
-   equations_list[[state]] <- deparsed_equations_noreturn[[equation_index]]
+   tmp_equation <- deparsed_equations_noreturn[[equation_index]]
+
+   print(tmp_equation)
+   symb_equation <- ysym(str_extract(tmp_equation, "(?<=\\=).*"))
+
+   equations_list[[state]] <- symb_equation
 
  }
 
