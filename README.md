@@ -7,7 +7,9 @@
 
 The goal of `amiga` is to check that your deSolve functions
 (specifically, your equations) do not have leaks! For example,if you
-write your equations wrong, you can lose individuals in the system.
+write your equations wrong, you can lose individuals in the system. THIS
+IS STILL A WIP! This is a project to force me to learn how to create an
+R package!
 
 ## Installation
 
