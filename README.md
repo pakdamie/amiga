@@ -21,17 +21,9 @@ pak::pak("pakdamie/amiga")
 
 ## Example
 
-Let’s look at this simple SIR model. No individuals should be created or
-removed from the system. Susceptibles are infected and will eventually
-recover.
-
-$$
-\frac{dS}{dt} = -\beta S I
-$$ $$
-\frac{dI}{dt} = \beta S I - \gamma I
-$$ $$
-\frac{dR}{dt} =  \gamma I
-$$
+Let’s think about a simple SIR model. No individuals should be created
+or removed from the system. Susceptibles are infected and will
+eventually recover.
 
 The first function is correct. The second function is not because we
 forgot a term! The third one is a valid equation, but it’s still a WIP!
