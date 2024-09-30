@@ -14,7 +14,7 @@ Imports:
 	ggplot2,
 	stringr,
 	dplyr,
-	deSolve,
-	ryacas
+	Ryacas,
+	deSolve
 URL: https://github.com/pakdamie/amiga
 BugReports: https://github.com/pakdamie/amiga/issues

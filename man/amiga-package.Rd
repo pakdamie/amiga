@@ -8,6 +8,14 @@
 \description{
 Oh no did you write your equations right in your deSolve function? Check for leaks!
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/pakdamie/amiga}
+  \item Report bugs at \url{https://github.com/pakdamie/amiga/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Damie Pak \email{damiedpak@gmail.com} (\href{https://orcid.org/0000-0002-8335-110X}{ORCID})
 

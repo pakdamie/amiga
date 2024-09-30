@@ -7,8 +7,8 @@
 #' is a complex number. This is very annoying if you're doing SIR, so I automatically
 #' change I to little i.
 #'
-#'
-#' @param deSolve_function
+#
+#' @param deSolve_function The desolve function
 #' @return A list element with the first element being the state variables
 #' and the second element being a list of the equations.
 #' @export
@@ -30,7 +30,7 @@ extract_system_equations <- function(deSolve_function){
 
  #Find the return equation
  return_equation <- lapply(deparsed_equations, function(x)
-                    str_extract(x, "(?<=return\\(list\\(c\\()[^\\)]+"))
+                    stringr::str_extract(x, "(?<=return\\(list\\(c\\()[^\\)]+"))
 
  if(length(return_equation) == 0){
    stop("Cannot find the return() of state-variables, check!")
@@ -60,7 +60,7 @@ extract_system_equations <- function(deSolve_function){
    #return the equation for the derivative of the state variable
    tmp_equation <- deparsed_equations_noreturn[[equation_index]]
 
-   symb_equation <- ysym(str_extract(tmp_equation, "(?<=\\=).*"))
+   symb_equation <- ysym(stringr::str_extract(tmp_equation, "(?<=\\=).*"))
 
    equations_list[[state]] <- symb_equation
 

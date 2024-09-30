@@ -6,6 +6,9 @@
 \usage{
 extract_system_equations(deSolve_function)
 }
+\arguments{
+\item{deSolve_function}{The desolve function}
+}
 \value{
 A list element with the first element being the state variables
 and the second element being a list of the equations.

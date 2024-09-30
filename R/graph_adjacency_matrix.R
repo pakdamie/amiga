@@ -12,7 +12,6 @@
 #' @examples graph_adjacency_matrix(adj_mat)
 graph_adjacency_matrix <- function(adjacency_matrix) {
 
-
   number_of_nodes <- ncol(adjacency_matrix)
 
   x_middle <- seq(0, 20, length = number_of_nodes)
@@ -23,19 +22,16 @@ graph_adjacency_matrix <- function(adjacency_matrix) {
     xmax = x_middle + 2,
     ymin = y_middle - 2,
     ymax = y_middle + 2,
-    state = rownames(adj_matrix),
-    number_pos = seq(1:nrow(adj_matrix))
+    state = rownames(adjacency_matrix),
+    number_pos = seq(1:nrow(adjacency_matrix))
   )
 
 
   edge_list <- as.data.frame(which(adjacency_matrix == 1, arr.ind = TRUE))
 
-
-
   edge_list1 <- left_join(edge_list, box_positions,
     by = c("row" = "number_pos")
   )
-
 
   edge_list2 <- left_join(edge_list, box_positions,
     by = c("col" = "number_pos")
@@ -56,7 +52,7 @@ graph_adjacency_matrix <- function(adjacency_matrix) {
       yend = yend
     )) +
     geom_rect(
-      data = positions, aes(
+      data =   box_positions , aes(
         xmin = xmin,
         xmax = xmax,
         ymin = ymin,
@@ -65,7 +61,8 @@ graph_adjacency_matrix <- function(adjacency_matrix) {
       color = "black", fill = "white"
     ) +
     geom_text(
-      data = positions, aes(label = state, x = x_middle, y = y_middle),
+      data =  box_positions  ,
+      aes(label = state, x = x_middle, y = y_middle),
       size = 10
     ) +
     coord_equal() +

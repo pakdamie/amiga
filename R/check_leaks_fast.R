@@ -15,8 +15,6 @@ check_leaks_fast <- function(deSolve_function){
 
   ###Extract the necessary system of equations
   ryacas_list <- extract_system_equations(deSolve_function)
-  adj_mat <- create_adjacency_matrix(ryacas_list)
-  print(graph_adjacency_matrix(adj_mat))
 
   ###The easiest thing to do is by simply by adding all the
   ### equations together.
